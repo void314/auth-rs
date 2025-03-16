@@ -8,6 +8,7 @@ use actix_web_grants::GrantsMiddleware;
 use dotenvy::dotenv;
 use env_logger::Env;
 use log::info;
+// use utoipa::openapi::info;
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
@@ -43,6 +44,7 @@ async fn main() -> std::io::Result<()> {
     let workers = config.server_config.workers;
 
     info!("Starting server at {}:{}", addr, port);
+    info!("Swagger: http://localhost:{}/swagger-ui/", port);
 
     let openapi = ApiDoc::openapi();
 
