@@ -5,30 +5,30 @@ CRUD operations are available for users, roles and permissions.
 
 ## Table of contents
 
-- [OpenAPI / Swagger](#openapi--swagger)
-- [Audit](#audit)
-- [Authentication](#authentication)
-- [Register](#register)
-- [Login](#login)
-- [Current](#current)
-- [Users](#users)
-    - [Create](#create)
-    - [Read](#read)
-    - [Update](#update)
-    - [Delete](#delete)
-- [Roles](#roles)
-    - [Create](#create-1)
-    - [Read](#read-1)
-    - [Update](#update-1)
-    - [Delete](#delete-1)
-- [Permissions](#permissions)
-    - [Create](#create-2)
-    - [Read](#read-2)
-    - [Update](#update-2)
-    - [Delete](#delete-2)
-- [Searching](#searching-3)
-- [Pagination](#pagination)
-- [Health](#health)
+-   [OpenAPI / Swagger](#openapi--swagger)
+-   [Audit](#audit)
+-   [Authentication](#authentication)
+-   [Register](#register)
+-   [Login](#login)
+-   [Current](#current)
+-   [Users](#users)
+    -   [Create](#create)
+    -   [Read](#read)
+    -   [Update](#update)
+    -   [Delete](#delete)
+-   [Roles](#roles)
+    -   [Create](#create-1)
+    -   [Read](#read-1)
+    -   [Update](#update-1)
+    -   [Delete](#delete-1)
+-   [Permissions](#permissions)
+    -   [Create](#create-2)
+    -   [Read](#read-2)
+    -   [Update](#update-2)
+    -   [Delete](#delete-2)
+-   [Searching](#searching-3)
+-   [Pagination](#pagination)
+-   [Health](#health)
 
 ## OpenAPI / Swagger
 
@@ -37,8 +37,9 @@ OpenAPI and Swagger documentation is available via the `/swagger-ui/` endpoint.
 ## Audit
 
 `Audit` entities are available via the following endpoints, if enabled:
-* `/api/v1/audits/`
-* `/api/v1/audits/{id}`
+
+-   `/api/v1/audits/`
+-   `/api/v1/audits/{id}`
 
 ### Read
 
@@ -72,7 +73,7 @@ Authorization: Bearer <access token here>
 
 #### Find all audit logs
 
-Find all `Audit` entities, within the given `page` and `limit` query parameters. 
+Find all `Audit` entities, within the given `page` and `limit` query parameters.
 
 ##### Request
 
@@ -103,9 +104,10 @@ Authorization: Bearer <access token here>
 
 Authentication is handled using JSON Web Tokens (JWT). The following endpoints are available:
 
-* `/api/v1/authentication/register/`
-* `/api/v1/authentication/login/`
-* `/api/v1/authentication/current/`
+-   `/api/v1/authentication/register/`
+-   `/api/v1/authentication/login/`
+-   `/api/v1/authentication/refresh/`
+-   `/api/v1/authentication/current/`
 
 ### Register
 
@@ -196,8 +198,8 @@ Authorization: Bearer <access token here>
 
 `User` entities can be managed using the following CRUD endpoints:
 
-* `/api/v1/users/`
-* `/api/v1/users/{id}`
+-   `/api/v1/users/`
+-   `/api/v1/users/{id}`
 
 ### Create
 
@@ -455,8 +457,8 @@ Authorization: Bearer <access token here>
 
 `Role` entities can be managed using the following CRUD endpoints:
 
-* `/api/v1/roles/`
-* `/api/v1/roles/{id}`
+-   `/api/v1/roles/`
+-   `/api/v1/roles/{id}`
 
 ### Create
 
@@ -657,8 +659,8 @@ AUthorization: Bearer <access token here>
 
 Permissions can be managed using the following CRUD endpoints:
 
-* `/api/v1/permissions/`
-* `/api/v1/permissions/{id}`
+-   `/api/v1/permissions/`
+-   `/api/v1/permissions/{id}`
 
 ### Create
 
@@ -809,21 +811,21 @@ fields:
 
 **Users**
 
-* `id`
-* `username`
-* `email`
-* `firstName`
-* `lastName`
+-   `id`
+-   `username`
+-   `email`
+-   `firstName`
+-   `lastName`
 
 **Roles**
 
-* `id`
-* `name`
+-   `id`
+-   `name`
 
 **Permissions**
 
-* `id`
-* `name`
+-   `id`
+-   `name`
 
 ### Pagination
 
