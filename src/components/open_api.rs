@@ -27,6 +27,7 @@ impl Modify for SecurityAddon {
         crate::web::controller::authentication::authentication_controller::login,
         crate::web::controller::authentication::authentication_controller::register,
         crate::web::controller::authentication::authentication_controller::current_user,
+        crate::web::controller::authentication::authentication_controller::refresh,
         crate::web::controller::health::health_controller::health,
         crate::web::controller::permission::permission_controller::create_permission,
         crate::web::controller::permission::permission_controller::find_all_permissions,

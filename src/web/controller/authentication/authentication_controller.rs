@@ -172,6 +172,40 @@ pub async fn login(
 
 #[utoipa::path(
     post,
+    path = "/api/v1/authentication/refresh/",
+    responses(
+        (status = 200, description = "OK", body = LoginResponse),
+        (status = 400, description = "Bad Request", body = BadRequest),
+        (status = 500, description = "Internal Server Error", body = InternalServerError),
+    ),
+    tag = "Authentication",
+    security(
+        ("Token" = [])
+    )
+)]
+#[post("/refresh/")]
+pub async fn refresh(req: HttpRequest, pool: web::Data<Config>) -> HttpResponse {
+    // Получаем заголовок Authorization и преобразуем его в &str
+    let auth_header = req
+        .headers()
+        .get("Authorization")
+        .and_then(|h| h.to_str().ok());
+    if let Some(auth_str) = auth_header {
+        if let Some(token) = auth_str.strip_prefix("Bearer ") {
+            match pool.services.jwt_service.refresh_jwt_token(token) {
+                Some(new_token) => return HttpResponse::Ok().json(LoginResponse::new(new_token)),
+                None => {
+                    return HttpResponse::InternalServerError()
+                        .json(InternalServerError::new("Failed to refresh JWT token"))
+                }
+            }
+        }
+    }
+    HttpResponse::BadRequest().json(BadRequest::new("Invalid token"))
+}
+
+#[utoipa::path(
+    post,
     path = "/api/v1/authentication/register/",
     request_body = RegisterRequest,
     responses(

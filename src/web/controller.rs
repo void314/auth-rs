@@ -56,7 +56,8 @@ impl Controller {
                     web::scope("/authentication")
                         .service(authentication_controller::login)
                         .service(authentication_controller::current_user)
-                        .service(authentication_controller::register),
+                        .service(authentication_controller::register)
+                        .service(authentication_controller::refresh),
                 )
                 .service(
                     web::scope("/audits")
